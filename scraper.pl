@@ -21,15 +21,16 @@
 print "pocet riadkov je $#rows\n";
 #print (@rows);
 #print "@rows";
-print encode_json ( ($rows[1]->look_down(_tag => 'td'))[0]->content);
+#print encode_json ( ($rows[1]->look_down(_tag => 'td'))[0]->content);
 
 for my $i (1 .. $#rows) #skip 0th (header)
 {
+   print "riadok: $i\n"; 
    print encode_json $row[$i];
    $_ = $row[$i];
    $tds=$_->find('td');
    print encode_json $tds;
-   $dt->insert([(Datum => $tds[0]->content,     Nazov => $tds[4]->content)]);
+   #$dt->insert([(Datum => $tds[0]->content,     Nazov => $tds[4]->content)]);
 }
 
 
