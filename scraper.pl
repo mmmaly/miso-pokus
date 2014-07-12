@@ -5,7 +5,7 @@
  use HTML::TreeBuilder;
  use Database::DumpTruck;
 
- use strict;
+ #use strict;
  use warnings;
 
 # # Read out and parse a web page
