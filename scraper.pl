@@ -20,7 +20,7 @@
 print "pocet riadkov je $#rows";
 print (@rows);
 print "@rows";
-print ($rows[0])->look_down(_tag => 'td');
+print $rows[0]->content();
 
 # # Open a database handle
 my $dt = Database::DumpTruck->new({dbname => 'data.sqlite', table => 'data'});
