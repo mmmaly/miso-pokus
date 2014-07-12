@@ -20,7 +20,7 @@
 print "pocet riadkov je $#rows\n";
 #print (@rows);
 #print "@rows";
-print $#($rows[0]->content);
+print ($rows[0]->content);
 
 # # Open a database handle
 my $dt = Database::DumpTruck->new({dbname => 'data.sqlite', table => 'data'});
