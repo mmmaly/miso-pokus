@@ -28,7 +28,8 @@ for my $i (1 .. $#rows) #skip 0th (header)
    print encode_json $row[$i];
    $_ = $row[$i];
    $tds=$_->find('td');
-   $dt->insert([(Datum => $tds[0]->content,     Nazov => $tds[4]->content));
+   print encode_json $tds;
+   $dt->insert([(Datum => $tds[0]->content,     Nazov => $tds[4]->content)]);
 }
 
 
