@@ -19,7 +19,8 @@
 
 print "pocet riadkov je $#rows";
 print (@rows);
-#printr $rows[0]->look_down(_tag => 'td');
+print "@rows";
+print bless($rows[0])->look_down(_tag => 'td');
 
 # # Open a database handle
 my $dt = Database::DumpTruck->new({dbname => 'data.sqlite', table => 'data'});
