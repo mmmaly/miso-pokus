@@ -5,9 +5,10 @@
  use HTML::TreeBuilder;
  use Database::DumpTruck;
  use JSON::XS;
-
  #use strict;
  use warnings;
+ 
+ convert_blessed ( [ true ] );
 
 # # Read out and parse a web page
  my $tb = HTML::TreeBuilder->new_from_content(get('http://www.bratislava.sk/register/vismo/zobraz_dok.asp?id_org=700026&id_ktg=1020&sz=zmena%5Fformalni&sz=vznik%5Fformalni&sz=schvaleni%5Fdatum&sz=zruseni%5Fdatum&sz=nazev&sz=nazev%5Fplny&sz=strvlastnik&sz=zverejneno%5Fod&sz=zverejneno%5Fdo&sz=ucinnost%5Fod&sz=ucinnost%5Fdo&sz=ud%5Fod&sz=ud%5Fdo&p1=15333&archiv=1'));
