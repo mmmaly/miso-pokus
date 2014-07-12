@@ -23,7 +23,7 @@ my $dt = Database::DumpTruck->new({dbname => 'data.sqlite', table => 'data'});
  # Insert content of <td id="name"> and <td id="age"> into the database
  $dt->insert([map {{
 ##     Datum => $_->look_down(_tag => 'td', id => 'age')->content,
-     Datum => $_->look_down(_tag => 'td')[0]->content,
+     Datum => $_->find('td')[0]->content,
      Nazov => $_->look_down(_tag => 'td')[4]->content,
  }} @rows]);
 
