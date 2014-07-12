@@ -33,8 +33,8 @@ for my $i (1 .. $#rows) #skip 0th (header)
    if($#tds)
    {
    #print encode_json $tds;
-     print  $tds[0][0];
-     print  $tds[4][0];
+     print  $tds[0];
+     print  $tds[4];
    }
    #$dt->insert([(Datum => $tds[0]->content,     Nazov => $tds[4]->content)]);
 }
