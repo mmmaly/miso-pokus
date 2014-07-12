@@ -18,6 +18,7 @@
  );
 
 print "pocet riadkov je $#rows";
+printr $row[0]->find('td');
 
 # # Open a database handle
 my $dt = Database::DumpTruck->new({dbname => 'data.sqlite', table => 'data'});
