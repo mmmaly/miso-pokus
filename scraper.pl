@@ -4,7 +4,7 @@
  use LWP::Simple;
  use HTML::TreeBuilder;
  use Database::DumpTruck;
- use Data::Printer;  
+ use JSON::XS;
 
  #use strict;
  use warnings;
@@ -21,7 +21,7 @@
 print "pocet riadkov je $#rows\n";
 #print (@rows);
 #print "@rows";
-p ( ($rows[1]->look_down(_tag => 'td'))[0]->content);
+# p ( ($rows[1]->look_down(_tag => 'td'))[0]->content);
 
 # # Open a database handle
 #my $dt = Database::DumpTruck->new({dbname => 'data.sqlite', table => 'data'});
