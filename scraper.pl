@@ -26,8 +26,8 @@ print "pocet riadkov je $#rows\n";
 for my $i (1 .. $#rows) #skip 0th (header)
 {
    print "riadok: $i\n"; 
-   print encode_json $row[$i];
-   $_ = $row[$i];
+   print encode_json $rows[$i];
+   $_ = $rows[$i];
    $tds=$_->find('td');
    print encode_json $tds;
    #$dt->insert([(Datum => $tds[0]->content,     Nazov => $tds[4]->content)]);
