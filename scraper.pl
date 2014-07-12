@@ -24,7 +24,7 @@ my $dt = Database::DumpTruck->new({dbname => 'data.sqlite', table => 'data'});
  $dt->insert([map {{
 ##     Datum => $_->look_down(_tag => 'td', id => 'age')->content,
      Datum => ($_->find('td'))[0]->content,
-     Nazov => $_->look_down(_tag => 'td')[4]->content,
+     Nazov => ($_->look_down(_tag => 'td'))[4]->content,
  }} @rows]);
 
 # You don't have to do things with the HTML::TreeBuilder and Database::DumpTruck
