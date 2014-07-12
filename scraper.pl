@@ -17,6 +17,8 @@
  #    sub { shift->parent->attr('class') eq 'seznam' }
  );
 
+print "pocet riadkov je $#rows";
+
 # # Open a database handle
 my $dt = Database::DumpTruck->new({dbname => 'data.sqlite', table => 'data'});
 #
