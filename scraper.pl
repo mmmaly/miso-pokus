@@ -2,29 +2,31 @@
 # including some code snippets below that you should find helpful
 
 # use LWP::Simple;
-# use HTML::TreeBuilder;
-# use Database::DumpTruck;
+ use HTML::TreeBuilder;
+ use Database::DumpTruck;
 
-# use strict;
-# use warnings;
+ use strict;
+ use warnings;
 
 # # Read out and parse a web page
-# my $tb = HTML::TreeBuilder->new_from_content(get('http://example.com/'));
+ my $tb = HTML::TreeBuilder->new_from_content(get('http://www.bratislava.sk/register/vismo/zobraz_dok.asp?id_org=700026&id_ktg=1020&sz=zmena%5Fformalni&sz=vznik%5Fformalni&sz=schvaleni%5Fdatum&sz=zruseni%5Fdatum&sz=nazev&sz=nazev%5Fplny&sz=strvlastnik&sz=zverejneno%5Fod&sz=zverejneno%5Fdo&sz=ucinnost%5Fod&sz=ucinnost%5Fdo&sz=ud%5Fod&sz=ud%5Fdo&p1=15333&archiv=1'));
 
-# # Look for <tr>s of <table id="hello">
-# my @rows = $tb->look_down(
-#     _tag => 'tr',
-#     sub { shift->parent->attr('id') eq 'hello' }
-# );
+ # Look for <tr>s of <table id="hello">
+ my @rows = $tb->look_down(
+     _tag => 'tr',
+     sub { shift->parent->attr('class') eq 'seznam' }
+ );
 
 # # Open a database handle
-# my $dt = Database::DumpTruck->new({dbname => 'data.sqlite', table => 'data'});
+my $dt = Database::DumpTruck->new({dbname => 'data.sqlite', table => 'data'});
 #
-# # Insert content of <td id="name"> and <td id="age"> into the database
-# $dt->insert([map {{
-#     Name => $_->look_down(_tag => 'td', id => 'name')->content,
-#     Age => $_->look_down(_tag => 'td', id => 'age')->content,
-# }} @rows]);
+ # Insert content of <td id="name"> and <td id="age"> into the database
+ $dt->insert([map {{
+    @tds = $_->look_down(_tag => 'td');
+##     Datum => $_->look_down(_tag => 'td', id => 'age')->content,
+     Datum => $tds[0]->content,
+     Nazov => $tds[4]->content,
+ }} @rows]);
 
 # You don't have to do things with the HTML::TreeBuilder and Database::DumpTruck
 # libraries. You can use whatever libraries are installed on Morph for Perl
