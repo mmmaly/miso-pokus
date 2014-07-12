@@ -18,7 +18,7 @@
  );
 
 print "pocet riadkov je $#rows";
-printr $rows;
+printr @rows;
 #printr $rows[0]->look_down(_tag => 'td');
 
 # # Open a database handle
