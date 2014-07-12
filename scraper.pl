@@ -8,7 +8,7 @@
  #use strict;
  use warnings;
  
- convert_blessed ( [ true ] );
+# convert_blessed ( [ 1 ] );
 
 # # Read out and parse a web page
  my $tb = HTML::TreeBuilder->new_from_content(get('http://www.bratislava.sk/register/vismo/zobraz_dok.asp?id_org=700026&id_ktg=1020&sz=zmena%5Fformalni&sz=vznik%5Fformalni&sz=schvaleni%5Fdatum&sz=zruseni%5Fdatum&sz=nazev&sz=nazev%5Fplny&sz=strvlastnik&sz=zverejneno%5Fod&sz=zverejneno%5Fdo&sz=ucinnost%5Fod&sz=ucinnost%5Fdo&sz=ud%5Fod&sz=ud%5Fdo&p1=15333&archiv=1'));
@@ -27,10 +27,12 @@ print "pocet riadkov je $#rows\n";
 for my $i (1 .. $#rows) #skip 0th (header)
 {
    print "riadok: $i\n"; 
-   print encode_json $rows[$i];
+  # print encode_json $rows[$i];
    $_ = $rows[$i];
    $tds=$_->find('td');
-   print encode_json $tds;
+   #print encode_json $tds;
+   print encode_json $tds[0]->content;
+   print encode_json $tds[4]->content;
    #$dt->insert([(Datum => $tds[0]->content,     Nazov => $tds[4]->content)]);
 }
 
