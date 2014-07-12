@@ -1,7 +1,7 @@
 # This is a template for a Perl scraper on Morph (https://morph.io)
 # including some code snippets below that you should find helpful
 
-# use LWP::Simple;
+ use LWP::Simple;
  use HTML::TreeBuilder;
  use Database::DumpTruck;
 
