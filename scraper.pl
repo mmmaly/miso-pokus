@@ -13,8 +13,8 @@
 
  # Look for <tr>s of <table id="hello">
  my @rows = $tb->look_down(
-     _tag => 'tr',
-     sub { shift->parent->attr('class') eq 'seznam' }
+     _tag => 'tr' #,
+ #    sub { shift->parent->attr('class') eq 'seznam' }
  );
 
 # # Open a database handle
