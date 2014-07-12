@@ -20,17 +20,17 @@
 print "pocet riadkov je $#rows\n";
 #print (@rows);
 #print "@rows";
-print ($rows[0]->content);
+print ($rows[0]->content());
 
 # # Open a database handle
-my $dt = Database::DumpTruck->new({dbname => 'data.sqlite', table => 'data'});
+#my $dt = Database::DumpTruck->new({dbname => 'data.sqlite', table => 'data'});
 #
  # Insert content of <td id="name"> and <td id="age"> into the database
- $dt->insert([map {{
+# $dt->insert([map {{
 ##     Datum => $_->look_down(_tag => 'td', id => 'age')->content,
-     Datum => ($_->find('td'))[0]->content,
-     Nazov => ($_->look_down(_tag => 'td'))[4]->content,
- }} @rows]);
+#     Datum => ($_->find('td'))[0]->content,
+#     Nazov => ($_->look_down(_tag => 'td'))[4]->content,
+# }} @rows]);
 
 # You don't have to do things with the HTML::TreeBuilder and Database::DumpTruck
 # libraries. You can use whatever libraries are installed on Morph for Perl
