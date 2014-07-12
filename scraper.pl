@@ -23,6 +23,15 @@ print "pocet riadkov je $#rows\n";
 #print "@rows";
 print encode_json ( ($rows[1]->look_down(_tag => 'td'))[0]->content);
 
+for my $i (1 .. $#rows) #skip 0th (header)
+{
+   print encode_json $row[$i];
+   $_ = $row[$i];
+   $tds=$_->find('td');
+   $dt->insert([(Datum => $tds[0]->content,     Nazov => $tds[4]->content));
+}
+
+
 # # Open a database handle
 #my $dt = Database::DumpTruck->new({dbname => 'data.sqlite', table => 'data'});
 #
