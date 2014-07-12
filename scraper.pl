@@ -17,9 +17,9 @@
  #    sub { shift->parent->attr('class') eq 'seznam' }
  );
 
-print "pocet riadkov je $#rows";
-print (@rows);
-print "@rows";
+print "pocet riadkov je $#rows\n";
+#print (@rows);
+#print "@rows";
 print ($rows[0]->content)[0];
 
 # # Open a database handle
